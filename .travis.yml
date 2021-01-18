@@ -1,6 +1,7 @@
 matrix:
   include:
     - os: linux
+      arch: amd64
       dist: focal
       compiler: gcc
       addons:
@@ -11,6 +12,19 @@ matrix:
             - parallel
             - meson
             - ninja-build
+    - os: linux
+      arch: ppc64le
+      dist: focal
+      compiler: gcc
+      addons:
+        apt:
+          packages:
+            - bc
+            - samtools
+            - parallel
+            - meson
+            - ninja-build
+     
 
 script:
   - apt-cache pkgnames|grep hts|grep lib
